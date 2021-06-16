@@ -1,4 +1,8 @@
-$body-color: slateblue;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$body-color: orange;
 
 body {
   color: $body-color;
