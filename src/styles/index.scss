@@ -1,10 +1,180 @@
+//tailwind
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-$body-color: orange;
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
 
+//color vars
+$white: #fff;
+$blue-dark: #0c1a3b;
+$blue-dark-alt: #172a58;
+$blue-bright: #6f97f6;
+$periwinkle: #a1bdf3;
+$gray-3: #c5cfd8;
+$apricot: #fbbc79;
+
+$font: 'Archivo', sans-serif;
+
+//utilities
+.bg-white {
+  background-color: $white;
+}
+.bg-blue-dark {
+  background-color: $blue-dark;
+}
+.bg-blue-dark-alt {
+  background-color: $blue-dark-alt;
+}
+.bg-blue-bright {
+  background-color: $blue-bright;
+}
+.bg-apricot {
+  background-color: $apricot;
+}
+.bg-periwinkle {
+  background-color: $periwinkle;
+}
+
+.text-blue-dark {
+  color: $blue-dark;
+}
+.text-blue-dark-alt {
+  color: $blue-dark-alt;
+}
+.text-blue-bright {
+  color: $blue-bright;
+}
+.text-apricot {
+  color: $apricot;
+}
+.text-periwinkle {
+  color: $periwinkle;
+}
+.text-gray {
+  color: $gray-3;
+}
+
+//general styles
 body {
-  color: $body-color;
-  font-family: sans-serif;
+  background: $blue-dark;
+  color: $white;
+  font-family: $font;
+}
+
+.bg-dots {
+  background-image: url('/public/images/dots.svg');
+  background-repeat: no-repeat;
+  &.bg-right {
+    background-position: 100% 50%;
+  }
+  &.bg-left {
+    background-position: 100% 65%;
+  }
+  @media screen and (min-width: 640px) {
+    &.bg-right {
+      background-position: 100% 5%;
+    }
+    &.bg-left {
+      background-position: 0% 5%;
+    }
+  }
+}
+
+a,
+button {
+  transition: 0.7s all cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+  &:hover {
+    opacity: 0.7;
+  }
+  &:focus,
+  &:focus-within {
+    outline-color: $blue-dark;
+  }
+  &.shiftY {
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+  &.shiftX {
+    &:hover {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.fade-element {
+  transition: 1s all cubic-bezier(0.4, 0.8, 0.4, 1) 0s;
+}
+.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.fade-in {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+//section specific styles
+#navbar-mobile {
+  top: 70px;
+  left: 0;
+  a:hover {
+    background-color: $apricot;
+    opacity: 1;
+  }
+}
+
+.svg-progress-wrap {
+  @media screen and (min-width: 1280px) {
+    transform: translate(0, -80px);
+    margin-bottom: -90px;
+  }
+}
+
+.progress-bar-wrap {
+  background-image: url('/public/images/glows.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 350px;
+  position: relative;
+  transform: translate(0, -80px);
+  margin-bottom: -90px;
+
+  .bar {
+    height: 4px;
+    background-color: #3d6ad6;
+    width: 100%;
+  }
+}
+
+#client-logos {
+  background-image: url('/public/images/bgclientlogos.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0% 0%;
+}
+
+#user-question,
+#winner-wrapper {
+  .sm\:text-4xl {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+
+#winner-wrapper {
+  margin-bottom: -200px;
+  .bg-curve-white {
+    transform: translateY(-199px);
+  }
+}
+
+#epilogue {
+  .container {
+    background-image: url('/public/images/bgwhitecircles.svg');
+    background-repeat: no-repeat;
+    background-position: 50% center;
+  }
 }

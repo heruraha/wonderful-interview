@@ -14,6 +14,7 @@ module.exports = merge(common, {
   devServer: {
     inline: true,
     hot: true,
+    contentBase: [__dirname + '/public']
   },
   plugins: [
     new Webpack.DefinePlugin({
